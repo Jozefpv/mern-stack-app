@@ -14,11 +14,11 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //routes
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
     //const task = await Task.find()
     //console.log(task)
     //res.json(task)
-    console.log("hola")
+    res.json({status: 'Task saved'})
 })
 app.use('/api/tasks', require('./routes/task.routes'))
 

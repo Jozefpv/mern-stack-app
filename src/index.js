@@ -6,8 +6,6 @@ const {mongoose} = require('./database')
 const path = require('path')
 const app = express()
 
-const Task = require('../models/task')
-
 //settings
 app.set('port', process.env.PORT || 3000)
 
@@ -16,12 +14,6 @@ app.use(morgan('dev'))
 app.use(express.json())
 
 //routes
-app.get('/', async(req, res) => {
-    const task = await Task.find()
-    console.log(task)
-    res.json(task)
-   
-})
 app.use('/api/tasks', require('./routes/task.routes'))
 
 //static files
